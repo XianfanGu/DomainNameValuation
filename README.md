@@ -7,4 +7,4 @@ To evavluate the value of the domain name
 
 
 ### Run algorithm  ###
-`python python fetch_data.py`
+`python fetch_data.py`
