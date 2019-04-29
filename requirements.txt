@@ -1,0 +1,4 @@
+# cat requirements.txt
+keras
+sklearn
+numpy==1.16.2
