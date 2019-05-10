@@ -309,6 +309,6 @@ for train_index, val_index in skf.split(X_train_,y_train_):
         max_acc = max(test_neg_acc_list)
 """
 learning_rate(X_train_, y_train_)
-#predict_exist(best_mod_list, X_test_, y_test_)
-#train_predict_exist(best_mod_list, X_train_, X_test_, y_train_, y_test_)
-#train_predict(X_train_, X_test_, y_train_, y_test_ ,'total')
+predict_exist(best_mod_list, X_test_, y_test_)
+train_predict_exist(best_mod_list, X_train_, X_test_, y_train_, y_test_)
+train_predict(X_train_, X_test_, y_train_, y_test_ ,'total')

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0600ab31-49c9-4664-b05a-2b9dbb66453f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fetch_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/fetch_data.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fetch_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="747">
-              <caret line="289" column="105" lean-forward="true" selection-start-line="289" selection-start-column="105" selection-end-line="289" selection-end-column="105" />
+            <state relative-caret-position="777">
+              <caret line="312" column="54" lean-forward="true" selection-start-line="312" selection-start-column="54" selection-end-line="312" selection-end-column="54" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -95,12 +94,12 @@
       <workItem from="1557126330400" duration="16662000" />
       <workItem from="1557214126563" duration="14176000" />
       <workItem from="1557383124625" duration="5834000" />
-      <workItem from="1557455548270" duration="12869000" />
+      <workItem from="1557455548270" duration="13473000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61506000" />
+    <option name="totallyTimeSpent" value="62110000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="903" y="59" width="2208" height="1108" extended-state="0" />
@@ -135,8 +134,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/fetch_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="747">
-          <caret line="289" column="105" lean-forward="true" selection-start-line="289" selection-start-column="105" selection-end-line="289" selection-end-column="105" />
+        <state relative-caret-position="777">
+          <caret line="312" column="54" lean-forward="true" selection-start-line="312" selection-start-column="54" selection-end-line="312" selection-end-column="54" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
