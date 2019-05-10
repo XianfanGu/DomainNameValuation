@@ -12,6 +12,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn import linear_model
+import matplotlib.pyplot as plt
 pathname = 'dataset1_1.csv'
 pathname1 = 'dataset2_1.csv'
 pathname2 = 'dataset3_1.csv'
@@ -167,8 +168,7 @@ def inputMatrix(dict_list, words_dict, trends_ratio_15,trends_ratio_30,trends_ra
     X_ = np.concatenate((X_,trends_ratio_15,trends_ratio_30,trends_ratio_60,np.array(coef).reshape(-1, 1),np.array(length_domains).reshape(-1, 1)), axis=1)
     return X_.astype(float)
 
-def train_predict(X_train, X_test, y_train, y_test):
-
+def train_predict(X_train, X_test, y_train, y_test,tag):
     model_name_list = ['LogisticRegression', 'DecisionTree', 'SVM', 'KNeighbors', 'RandomForest']
     model = LogisticRegression(C=1e5, random_state=0, solver='liblinear', multi_class='auto', max_iter=5000)
     model1 = DecisionTreeClassifier(criterion='entropy', max_depth=21, random_state=0)
@@ -177,6 +177,12 @@ def train_predict(X_train, X_test, y_train, y_test):
     model3 = KNeighborsClassifier(n_neighbors=21, p=3, metric='minkowski')
     model4 = RandomForestClassifier(criterion='entropy', n_estimators=21, random_state=1,n_jobs=2)
     model_list = [model,model1,model2,model3,model4]
+    re_model_list = []
+    train_acc_list = []
+    test_acc_list = []
+    test_neg_acc_list = []
+
+    print("\n\n\n\n--------------Train "+tag+"-----------------")
     for mod,name in zip(model_list,model_name_list):
         mod.fit(X_train, y_train)
         prediction_y = mod.predict(X_test)
@@ -188,7 +194,54 @@ def train_predict(X_train, X_test, y_train, y_test):
                 test.append(-1)
                 predict.append(prediction_y[j])
             j = j+1
+        re_model_list.append(mod)
+        train_accuracy = accuracy_score(y_train, mod.predict(X_train))
+        test_accuracy = accuracy_score(y_test, prediction_y)
+        neg_acc = accuracy_score(test, predict)
+        train_acc_list.append(train_accuracy)
+        test_neg_acc_list.append(neg_acc)
+        test_acc_list.append(test_accuracy)
+        print(prediction_y)
+        print(y_test)
+        print("The accuracy of "+name+" model is: ",test_accuracy)
+        print("The negative accuracy of "+name+" model is: ",neg_acc)
 
+    return re_model_list, train_acc_list, test_acc_list, test_neg_acc_list
+
+def predict_exist(model_list, X_test, y_test):
+    model_name_list = ['LogisticRegression', 'DecisionTree', 'SVM', 'KNeighbors', 'RandomForest']
+    print("\n\n\n\n--------------k-fold model Predict-----------------")
+    for mod, name in zip(model_list, model_name_list):
+        prediction_y = mod.predict(X_test)
+        test = []
+        predict = []
+        j = 0
+        for ele in y_test:
+            if (ele == -1):
+                test.append(-1)
+                predict.append(prediction_y[j])
+            j = j + 1
+        accuracy = accuracy_score(y_test, prediction_y)
+        neg_acc = accuracy_score(test, predict)
+        print(prediction_y)
+        print(y_test)
+        print("The accuracy of " + name + " model is: ", accuracy)
+        print("The negative accuracy of " + name + " model is: ", neg_acc)
+
+def train_predict_exist(model_list, X_train, X_test, y_train, y_test):
+    model_name_list = ['LogisticRegression', 'DecisionTree', 'SVM', 'KNeighbors', 'RandomForest']
+    print("\n\n\n\n--------------k-fold model Train and Predict-----------------")
+    for mod,name in zip(model_list,model_name_list):
+        mod.fit(X_train, y_train)
+        prediction_y = mod.predict(X_test)
+        test = []
+        predict = []
+        j = 0
+        for ele in y_test:
+            if(ele == -1):
+                test.append(-1)
+                predict.append(prediction_y[j])
+            j = j+1
         accuracy = accuracy_score(y_test, prediction_y)
         neg_acc = accuracy_score(test, predict)
         print(prediction_y)
@@ -196,49 +249,66 @@ def train_predict(X_train, X_test, y_train, y_test):
         print("The accuracy of "+name+" model is: ",accuracy)
         print("The negative accuracy of "+name+" model is: ",neg_acc)
 
-def batch_train_predict(batch_num,X_train, X_test, y_train, y_test):
-    model = LogisticRegression(random_state=0, solver='lbfgs', multi_class='multinomial')
-    model2 = SVC(kernel='rbf', tol=1e-3, random_state=0, gamma=0.2, C=10.0, verbose=True)  # 8.05 for SVM model
-    model3 = KNeighborsClassifier(n_neighbors=21, p=3, metric='minkowski')  # 7.05 for  model
-    model5 = DecisionTreeClassifier(criterion='entropy', max_depth=21, random_state=0)
-    model4 = RandomForestClassifier(criterion='entropy', n_estimators=21, random_state=1,n_jobs=2)  # 5.2 for randomforest
-    model1 = LogisticRegression(random_state=0, solver='lbfgs', multi_class='multinomial')
-    train_batch_size = int(len(y_train)/(batch_num-1))
-    train_rest_size = len(y_train)% train_batch_size
-    test_batch_size = int(len(y_test)/(batch_num-1))
-    test_rest_size = len(y_test)% test_batch_size
-    print(train_batch_size,train_rest_size,test_batch_size,test_rest_size)
-    for i in range(1,batch_num):
-        print(i)
-        X_train_input = X_train[(i-1)*train_batch_size:i*train_batch_size]
-        y_train_input = y_train[(i-1)*train_batch_size:i*train_batch_size]
-        X_test_input = X_test[(i - 1) * test_rest_size:i * test_rest_size]
-        y_test_input = y_test[(i - 1) * test_rest_size:i * test_rest_size]
-        model.fit(X_train_input, y_train_input)
-        prediction_y = model.predict(X_test_input)
-        accuracy = accuracy_score(y_test_input, prediction_y)
-        print(prediction_y)
-        print(y_test_input)
-        print("The accuracy of LogisticRegression model is: ", accuracy)
+def learning_rate(X, y):
+    from sklearn.model_selection import learning_curve
+    model_name_list = ['LogisticRegression', 'DecisionTree', 'SVM', 'KNeighbors', 'RandomForest']
+    model = LogisticRegression(C=1e5, random_state=0, solver='liblinear', multi_class='auto', max_iter=5000)
+    model1 = DecisionTreeClassifier(criterion='entropy', max_depth=21, random_state=0)
+    model2 = SVC(kernel='rbf', tol=1e-3, random_state=0, gamma=0.2, C=1e5, verbose=True)
+    # model2 = SVC(kernel='linear')
+    model3 = KNeighborsClassifier(n_neighbors=21, p=3, metric='minkowski')
+    model4 = RandomForestClassifier(criterion='entropy', n_estimators=21, random_state=1, n_jobs=2)
+    model_list = [model, model1, model2, model3, model4]
+    plot_re_ = {}
+    for name,model_ele in zip(model_name_list,model_list):
+        train_sizes, train_scores, valid_scores = learning_curve(model_ele, X, y, train_sizes = [0.1, 0.33, 0.55, 0.78, 1. ], cv = 5)
+        train_scores = [sum(row)/len(row) for row in train_scores]
+        valid_scores = [sum(row)/len(row) for row in valid_scores]
+        plot_re_[name] = [train_sizes, train_scores, valid_scores]
+    for name in  model_name_list:
+        X = plot_re_[name][0]
+        y1 = plot_re_[name][1]
+        y2 = plot_re_[name][2]
 
-    X_train_input = X_train[len(X_train)-train_rest_size:]
-    y_train_input = y_train[len(y_train)-train_rest_size:]
-    X_test_input = X_test[len(X_test)-test_rest_size:]
-    y_test_input = y_test[len(y_test)-test_rest_size:]
-    model.fit(X_train_input, y_train_input)
-    prediction_y = model.predict(X_test_input)
-    accuracy = accuracy_score(y_test_input, prediction_y)
-    print(prediction_y)
-    print(y_test_input)
-    print("The accuracy of LogisticRegression model is: ", accuracy)
+
+        fig, ax = plt.subplots()
+        line1, = ax.plot(X, y1,'c*-', label='train score' )
+        line2, = ax.plot( X, y2, 'm.-.', label='cross-validation score')
+        ax.set_ylim(0.0, 1.2)
+        ax.set_xlabel('training examples')
+        ax.set_ylabel('accuracy')
+        ax.set_title('Learning curves: '+name)
+        ax.legend()
+        plt.show()
+        fig.savefig('output/'+name+'.png')
+
 
 trends = csvdata1()
 trends_ratio_15,trends_ratio_30,trends_ratio_60,coef = calcTrends(trends)
 raw_dict_list,raw_words_dict,target,length = csvdata()
-y = target
+y = np.array(target).ravel()
 X = inputMatrix(raw_dict_list,raw_words_dict,trends_ratio_15,trends_ratio_30,trends_ratio_60,coef,length)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, random_state=0)
-batch_num = 10
-#batch_train_predict(batch_num,X_train, X_test, y_train, y_test)
-train_predict(X_train, X_test, y_train, y_test)
-#print(toOnehotkey(dict_list))
+length = len(y)
+from sklearn.model_selection import StratifiedKFold
+skf = StratifiedKFold(n_splits=5, random_state=42,shuffle=True)
+# X is the feature set and y is the target
+max_acc = 0
+best_mod_list = []
+tag = 0
+X_train_, X_test_, y_train_, y_test_ = train_test_split(X,y, test_size=0.3, random_state=5)
+"""
+for train_index, val_index in skf.split(X_train_,y_train_):
+    #print("Train:", train_index, "Validation:", val_index)
+    X_train, X_test = X[train_index], X[val_index]
+    y_train, y_test = y[train_index], y[val_index]
+    print('Train: %s | test: %s' % (train_index, val_index))
+    mod_list,train_acc_list, test_acc_list, test_neg_acc_list = train_predict(X_train, X_test, y_train, y_test,str(tag))
+    tag = tag + 1
+    if(max(test_neg_acc_list)>max_acc):
+        best_mod_list = mod_list
+        max_acc = max(test_neg_acc_list)
+"""
+learning_rate(X_train_, y_train_)
+#predict_exist(best_mod_list, X_test_, y_test_)
+#train_predict_exist(best_mod_list, X_train_, X_test_, y_train_, y_test_)
+#train_predict(X_train_, X_test_, y_train_, y_test_ ,'total')

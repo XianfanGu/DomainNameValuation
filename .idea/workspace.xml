@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0600ab31-49c9-4664-b05a-2b9dbb66453f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fetch_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/fetch_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistic.csv" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fetch_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="537">
-              <caret line="172" column="36" selection-start-line="172" selection-start-column="36" selection-end-line="172" selection-end-column="36" />
+            <state relative-caret-position="747">
+              <caret line="289" column="105" lean-forward="true" selection-start-line="289" selection-start-column="105" selection-end-line="289" selection-end-column="105" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -38,8 +38,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="911" />
-    <option name="y" value="200" />
+    <option name="x" value="903" />
+    <option name="y" value="59" />
     <option name="width" value="2208" />
     <option name="height" value="1108" />
   </component>
@@ -48,6 +48,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -59,7 +60,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -93,18 +93,20 @@
       <workItem from="1556597320451" duration="10767000" />
       <workItem from="1557048469124" duration="1198000" />
       <workItem from="1557126330400" duration="16662000" />
-      <workItem from="1557214126563" duration="5421000" />
+      <workItem from="1557214126563" duration="14176000" />
+      <workItem from="1557383124625" duration="5834000" />
+      <workItem from="1557455548270" duration="12869000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34048000" />
+    <option name="totallyTimeSpent" value="61506000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="911" y="200" width="2208" height="1108" extended-state="0" />
+    <frame x="903" y="59" width="2208" height="1108" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25670674" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2613321" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -133,8 +135,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/fetch_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="172" column="36" selection-start-line="172" selection-start-column="36" selection-end-line="172" selection-end-column="36" />
+        <state relative-caret-position="747">
+          <caret line="289" column="105" lean-forward="true" selection-start-line="289" selection-start-column="105" selection-end-line="289" selection-end-column="105" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
