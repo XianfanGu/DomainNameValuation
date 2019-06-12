@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0600ab31-49c9-4664-b05a-2b9dbb66453f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fetch_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/fetch_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/DecisionTree.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/KNeighbors.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/LogisticRegression.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/RandomForest.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/SVM.png" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,8 +21,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fetch_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="732">
-              <caret line="309" lean-forward="true" selection-start-line="309" selection-end-line="309" />
+            <state relative-caret-position="134">
+              <caret line="164" selection-start-line="164" selection-end-line="164" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -36,18 +42,17 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="903" />
-    <option name="y" value="59" />
-    <option name="width" value="2208" />
-    <option name="height" value="1108" />
+  <component name="ProjectFrameBounds" extendedState="4">
+    <option name="x" value="1313" />
+    <option name="y" value="25" />
+    <option name="width" value="1247" />
+    <option name="height" value="1415" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -59,6 +64,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -94,18 +100,27 @@
       <workItem from="1557126330400" duration="16662000" />
       <workItem from="1557214126563" duration="14176000" />
       <workItem from="1557383124625" duration="5834000" />
-      <workItem from="1557455548270" duration="14101000" />
+      <workItem from="1557455548270" duration="39950000" />
+      <workItem from="1557908486983" duration="23285000" />
+      <workItem from="1558066226080" duration="3253000" />
+      <workItem from="1558317473683" duration="11513000" />
+      <workItem from="1558345008226" duration="1885000" />
+      <workItem from="1558409313132" duration="2183000" />
+      <workItem from="1558577573557" duration="16307000" />
+      <workItem from="1558928166390" duration="2687000" />
+      <workItem from="1558942064686" duration="2748000" />
+      <workItem from="1559101024749" duration="1942000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62738000" />
+    <option name="totallyTimeSpent" value="154390000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="903" y="59" width="2208" height="1108" extended-state="0" />
+    <frame x="1313" y="25" width="1247" height="1415" extended-state="4" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2613321" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.5187344" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -134,8 +149,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/fetch_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="732">
-          <caret line="309" lean-forward="true" selection-start-line="309" selection-end-line="309" />
+        <state relative-caret-position="134">
+          <caret line="164" selection-start-line="164" selection-end-line="164" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>

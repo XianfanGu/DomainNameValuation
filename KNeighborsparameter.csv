@@ -1,0 +1,2 @@
+mean_fit_time,std_fit_time,mean_score_time,std_score_time,param_n_neighbors,param_p,params,split0_test_score,split1_test_score,split2_test_score,split3_test_score,split4_test_score,mean_test_score,std_test_score,rank_test_score,split0_train_score,split1_train_score,split2_train_score,split3_train_score,split4_train_score,mean_train_score,std_train_score
+0.040122032165527344,0.0010125362254636123,0.2952608585357666,0.004353454471266213,10,1,"{'n_neighbors': 10, 'p': 1}",0.5,0.5,0.5,0.5,0.5,0.5,0.0,1,0.5,0.5,0.5,0.5,0.5096153846153846,0.5019230769230769,0.0038461538461538325
